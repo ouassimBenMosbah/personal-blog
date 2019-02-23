@@ -7,6 +7,11 @@ ul {
   width: 100%;
 }
 
+ul.header-bar-container {
+  font-size: large;
+  height: 56px;
+}
+
 li {
   float: left;
 }
@@ -15,7 +20,7 @@ li span {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 20px 35px;
   text-decoration: none;
 }
 
@@ -23,14 +28,21 @@ li span:hover {
   cursor: pointer;
 }
 
-.active {
+.transition.active {
   background-color: #4caf50;
 }
 
-.active:hover {
+.transition.active:hover {
   background-color: rgb(113, 193, 116);
 }
 
-.inactive:hover {
+.transition.inactive:hover {
   background-color: #111;
+}
+
+.transition {
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transform-origin: left;
 }

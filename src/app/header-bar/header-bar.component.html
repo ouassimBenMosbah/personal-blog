@@ -1,7 +1,8 @@
-<ul>
+<ul class="header-bar-container">
   <li
     *ngFor="let tab of menu"
     [ngClass]="{ active: tab.active, inactive: !tab.active }"
+    class="transition"
     (click)="redirect(tab)"
   >
     <span>{{ tab.label }}</span>
