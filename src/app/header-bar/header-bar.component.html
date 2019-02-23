@@ -1,0 +1,9 @@
+<ul>
+  <li
+    *ngFor="let tab of menu"
+    [ngClass]="{ active: tab.active, inactive: !tab.active }"
+    (click)="redirect(tab)"
+  >
+    <span>{{ tab.label }}</span>
+  </li>
+</ul>
