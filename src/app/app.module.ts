@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule, MatIconModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,6 +11,7 @@ import { PageNotFoundComponentComponent } from '@_components/page-not-found-comp
 import { SandboxComponent } from '@_components/sandbox-module/sandbox/sandbox.component';
 import { AppComponent } from './app.component';
 import { AppResolver } from './app.resolver';
+import { FunFactComponent } from './components/sandbox-module/fun-fact/fun-fact.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -42,9 +45,17 @@ const appRoutes: Routes = [
     HomeComponent,
     FooterComponent,
     PageNotFoundComponentComponent,
-    SandboxComponent
+    SandboxComponent,
+    FunFactComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   providers: [AppResolver],
   bootstrap: [AppComponent]
 })

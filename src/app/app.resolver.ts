@@ -7,7 +7,6 @@ export class AppResolver implements Resolve<boolean> {
   constructor(private router: Router) {}
 
   resolve(): Observable<boolean> {
-    console.log('Main app resolver');
     return of(true);
   }
 }

@@ -10,6 +10,9 @@ ul {
 ul.header-bar-container {
   font-size: large;
   height: 56px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 li {
@@ -20,7 +23,6 @@ li span {
   display: block;
   color: white;
   text-align: center;
-  padding: 20px 35px;
   text-decoration: none;
 }
 
@@ -29,7 +31,9 @@ li span:hover {
 }
 
 .transition.active {
-  background-color: #4caf50;
+  .header-section {
+    border-bottom: 2px solid #4caf50;
+  }
 }
 
 .transition.active:hover {
@@ -45,4 +49,5 @@ li span:hover {
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   transform-origin: left;
+  margin-left: 20px;
 }

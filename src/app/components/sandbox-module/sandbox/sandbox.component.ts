@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FunFactService } from '../services/fun-fact.service';
 
 @Component({
   selector: 'app-sandbox',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sandbox.component.scss']
 })
 export class SandboxComponent implements OnInit {
-
-  constructor() { }
+  public fact$: Observable<string>;
+  constructor(private funFactService: FunFactService) {}
 
   ngOnInit() {
+    this.fact$ = this.funFactService.getJoke();
   }
-
 }

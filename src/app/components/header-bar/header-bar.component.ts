@@ -29,7 +29,6 @@ export class HeaderBarComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((navigationEnd: NavigationEnd) => {
         const currentUrl: string = navigationEnd.urlAfterRedirects.substring(1);
-        console.log(currentUrl);
         this.menu = this.updateActiveTab([...this.menu], currentUrl);
       });
   }
