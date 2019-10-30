@@ -2,10 +2,9 @@
   <div></div>
   <h1 class="title">Random fun fact</h1>
   <div class="refresh-button">
-    <button type="button" class="refresh" (click)="refreshFact()">
+    <button mat-raised-button color="primary" type="button" class="refresh" (click)="refreshFact()">
       <mat-icon>refresh</mat-icon>
     </button>
   </div>
 </div>
-<div *ngIf="fact$ | async as fact; else loading" class="fact-text">{{ fact }}</div>
-<ng-template #loading><p class="loading">loading ...</p> </ng-template>
+<app-fun-fact-display [fact]="fact$ | async"></app-fun-fact-display>

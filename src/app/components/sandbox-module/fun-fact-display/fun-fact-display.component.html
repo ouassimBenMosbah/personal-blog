@@ -1,0 +1,8 @@
+<mat-card class="fact-text-container">
+  <ng-container *ngIf="fact; else loading">
+    <p class="fact-text">
+      {{ fact }}
+    </p>
+  </ng-container>
+  <ng-template #loading><p class="loading">loading ...</p> </ng-template>
+</mat-card>

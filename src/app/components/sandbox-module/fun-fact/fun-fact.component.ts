@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FunFactService } from './../services/fun-fact.service';
 
@@ -8,12 +8,19 @@ import { FunFactService } from './../services/fun-fact.service';
   styleUrls: ['./fun-fact.component.scss']
 })
 export class FunFactComponent implements OnInit {
-  @Input() fact$: Observable<string>;
+  public fact$: Observable<string>;
+
   constructor(private funFactService: FunFactService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.refreshFact();
+  }
+
+  private getNewJoke(): Observable<string> {
+    return this.funFactService.getJoke();
+  }
 
   public refreshFact() {
-    this.fact$ = this.funFactService.getJoke();
+    this.fact$ = this.getNewJoke();
   }
 }

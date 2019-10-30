@@ -49,5 +49,8 @@ li span:hover {
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   transform-origin: left;
-  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
 }
