@@ -1,11 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from '@_components/home-module/home/home.component';
-import { SandboxComponent } from '@_components/sandbox-module/sandbox/sandbox.component';
 import { PageNotFoundComponent } from '@_components/shared/page-not-found/page-not-found.component';
 import { AppResolver } from './app.resolver';
 
 export const appRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: '',
     resolve: {
@@ -14,13 +11,15 @@ export const appRoutes: Routes = [
     children: [
       {
         path: 'home',
-        component: HomeComponent,
+        loadChildren: () =>
+          import('./components/home-module/home.module').then(mod => mod.HomeModule),
         data: { title: 'Home', animation: 'homePage' }
         // canActivate: [AuthGuardAppService]
       },
       {
         path: 'sandbox',
-        component: SandboxComponent,
+        loadChildren: () =>
+          import('./components/sandbox-module/sandbox.module').then(mod => mod.SandboxModule),
         data: { title: 'Sandbox', animation: 'sandboxPage' }
         // canActivate: [AuthGuardAppService]
       }
