@@ -16,6 +16,7 @@
     "lib": ["es2018", "dom"],
     "paths": {
       "@_components/*": ["src/app/components/*"]
-    }
+    },
+    "resolveJsonModule": true
   }
 }

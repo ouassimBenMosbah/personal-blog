@@ -1,5 +1,7 @@
 {
   "name": "personal-blog",
+  "displayName": "Personal blog",
+  "author": "Ouassim BEN MOSBAH",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

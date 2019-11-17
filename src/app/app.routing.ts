@@ -13,15 +13,13 @@ export const appRoutes: Routes = [
       {
         path: 'home',
         loadChildren: () =>
-          import('./components/home-module/home.module').then(mod => mod.HomeModule),
-        data: { title: 'Home', animation: 'homePage' }
+          import('./components/home-module/home.module').then(mod => mod.HomeModule)
         // canActivate: [AuthGuardAppService]
       },
       {
         path: 'sandbox',
         loadChildren: () =>
-          import('./components/sandbox-module/sandbox.module').then(mod => mod.SandboxModule),
-        data: { title: 'Sandbox', animation: 'sandboxPage' }
+          import('./components/sandbox-module/sandbox.module').then(mod => mod.SandboxModule)
         // canActivate: [AuthGuardAppService]
       }
     ]
