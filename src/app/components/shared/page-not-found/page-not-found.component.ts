@@ -1,11 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-page-not-found-component',
-  templateUrl: './page-not-found-component.component.html',
-  styleUrls: ['./page-not-found-component.component.scss']
+  selector: 'app-page-not-found',
+  templateUrl: './page-not-found.component.html',
+  styleUrls: ['./page-not-found.component.scss']
 })
-export class PageNotFoundComponentComponent implements OnInit {
+export class PageNotFoundComponent implements OnInit {
   private _game;
   constructor() {}
 
