@@ -3,6 +3,7 @@ import { PageNotFoundComponent } from '@_components/shared/page-not-found/page-n
 import { AppResolver } from './app.resolver';
 
 export const appRoutes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: '',
     resolve: {
