@@ -9,10 +9,12 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppResolver } from './app.resolver';
 import { appRoutes } from './app.routing';
+import { BlogModule } from './modules/blog-module/blog.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    BlogModule,
     SandboxModule,
     SharedModule,
     BrowserModule,

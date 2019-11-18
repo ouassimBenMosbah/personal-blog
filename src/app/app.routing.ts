@@ -16,6 +16,11 @@ export const appRoutes: Routes = [
         // canActivate: [AuthGuardAppService]
       },
       {
+        path: 'blog',
+        loadChildren: () => import('./modules/blog-module/blog.module').then(mod => mod.BlogModule)
+        // canActivate: [AuthGuardAppService]
+      },
+      {
         path: 'sandbox',
         loadChildren: () =>
           import('./modules/sandbox-module/sandbox.module').then(mod => mod.SandboxModule)
