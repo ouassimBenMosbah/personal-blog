@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FunFactService } from './../services/fun-fact.service';
+import { FunFactService } from '../services/fun-fact.service';
 
 @Component({
   selector: 'app-fun-fact',

@@ -15,7 +15,7 @@
     "types": ["node"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "@_components/*": ["src/app/components/*"]
+      "@_components/*": ["src/app/modules/*"]
     },
     "resolveJsonModule": true
   }
