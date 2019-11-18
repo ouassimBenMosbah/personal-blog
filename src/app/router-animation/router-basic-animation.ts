@@ -47,6 +47,10 @@ const translateFromRightToLeft = [
 ];
 
 export const slideComponent = trigger('routeAnimations', [
+  transition('blogPage => homePage', translateFromLeftToRight),
+  transition('sandboxPage => blogPage', translateFromLeftToRight),
   transition('sandboxPage => homePage', translateFromLeftToRight),
+  transition('blogPage => sandboxPage', translateFromRightToLeft),
+  transition('homePage => blogPage', translateFromRightToLeft),
   transition('homePage => sandboxPage', translateFromRightToLeft)
 ]);

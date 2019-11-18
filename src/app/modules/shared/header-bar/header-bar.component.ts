@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 interface Tab {
@@ -17,20 +17,28 @@ interface Tab {
 export class HeaderBarComponent implements OnInit {
   public menu: Tab[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.menu = [
-      { id: 1, label: 'Home', url: 'home', active: true },
-      { id: 2, label: 'Sandbox', url: 'sandbox', active: false }
-    ];
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
+    this.menu = this.initMenu(this.router);
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((navigationEnd: NavigationEnd) => {
         const currentUrl: string = navigationEnd.urlAfterRedirects.substring(1);
         this.menu = this.updateActiveTab([...this.menu], currentUrl);
       });
+  }
+
+  private initMenu(router: Router): Tab[] {
+    const menu: Tab[] = [];
+    router.config
+      .filter(config => !!config.data)
+      .forEach(
+        ({ data }: { data: { title: string; url: string; animation: string; order: number } }) => {
+          menu.push({ id: data.order, label: data.title, url: data.url, active: false });
+        }
+      );
+    return menu.sort((tabA: Tab, tabB: Tab) => tabA.id - tabB.id);
   }
 
   private updateActiveTab(menu: Tab[], currentUrl: string): Tab[] {
@@ -42,8 +50,5 @@ export class HeaderBarComponent implements OnInit {
 
   public redirect(tab: Tab) {
     this.router.navigate([tab.url]);
-    this.menu.forEach(tabMenu => {
-      tabMenu.active = tabMenu.id === tab.id;
-    });
   }
 }

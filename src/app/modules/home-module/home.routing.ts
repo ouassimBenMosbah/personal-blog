@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { title: 'Home', animation: 'homePage' } }
+  {
+    path: '',
+    component: HomeComponent,
+    data: { title: 'Home', animation: 'homePage', url: 'home', order: 0 }
+  }
 ];
 
 @NgModule({
