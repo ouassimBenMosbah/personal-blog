@@ -8,7 +8,7 @@ import {
   RouterOutlet,
   RouterState
 } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, tap } from 'rxjs/operators';
 import { displayName } from '../../package.json';
 import { slideComponent } from './router-animation/router-basic-animation';
 
@@ -32,7 +32,14 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     const TITLE_SEPARATOR = ' - ';
     this.router.events
-      .pipe(filter((event: RouterEvent) => event instanceof NavigationEnd))
+      .pipe(
+        filter((event: RouterEvent) => event instanceof NavigationEnd),
+        tap((routerEvent: RouterEvent) => {
+          if (routerEvent.id === 1 && routerEvent.url === '/') {
+            this.router.navigate(['home']);
+          }
+        })
+      )
       .subscribe(() => {
         const title: string = this.getTitle(
           this.router.routerState,
