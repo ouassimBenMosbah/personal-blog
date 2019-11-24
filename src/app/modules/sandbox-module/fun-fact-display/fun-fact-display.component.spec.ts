@@ -8,9 +8,8 @@ describe('FunFactDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FunFactDisplayComponent ]
-    })
-    .compileComponents();
+      declarations: [FunFactDisplayComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
