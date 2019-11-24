@@ -27,11 +27,11 @@ export class FunFactApiService {
 
   getFactAboutNumber(): Observable<string> {
     return this.http
-      .get('http://numbersapi.com/random/trivia', { responseType: 'text' })
-      .pipe(map(res => res));
+      .get('https://numbersapi.com/random/trivia', { responseType: 'text' })
+      .pipe(map((res: string) => res));
   }
 
-  getFoodJoke() {
+  getFoodJoke(): Observable<string> {
     return this.http
       .get(`https://api.spoonacular.com/food/jokes/random?apiKey=2417226de29b46fa9f5d4248071a0939 `)
       .pipe(

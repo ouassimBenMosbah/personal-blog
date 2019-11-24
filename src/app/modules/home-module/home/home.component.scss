@@ -5,7 +5,7 @@
   width: 100%;
   height: calc(100vh - 56px); /* gives the effect a bit of room to breathe */
   position: relative;
-  background: url('../../../../assets/ouassim-blurred.png') fixed 100% / cover;
+  background: url('/assets/ouassim-blurred.png') fixed 100% / cover;
   /* This is the blurred image.
      Could also use filters to do this + another pseudo el,
      but it is less performant.
