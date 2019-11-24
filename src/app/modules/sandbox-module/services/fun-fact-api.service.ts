@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-interface ChuckNorrisAPIResponse {
+interface IChuckNorrisAPIResponse {
   categories: string[];
   created_at: Date;
   icon_url: string;
@@ -22,13 +22,11 @@ export class FunFactApiService {
   getChuckNorrisJoke(): Observable<string> {
     return this.http
       .get('https://api.chucknorris.io/jokes/random')
-      .pipe(map((res: ChuckNorrisAPIResponse) => res.value));
+      .pipe(map((res: IChuckNorrisAPIResponse) => res.value));
   }
 
-  getFactAboutNumber(): Observable<string> {
-    return this.http
-      .get('https://numbersapi.com/random/trivia', { responseType: 'text' })
-      .pipe(map((res: string) => res));
+  getKanyWestQuote(): Observable<string> {
+    return this.http.get('https://api.kanye.rest').pipe(map((res: { quote: string }) => res.quote));
   }
 
   getFoodJoke(): Observable<string> {

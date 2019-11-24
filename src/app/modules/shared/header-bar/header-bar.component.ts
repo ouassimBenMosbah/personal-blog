@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
-interface Tab {
+interface ITab {
   id: number;
   label: string;
   url: string;
@@ -15,7 +15,7 @@ interface Tab {
   styleUrls: ['./header-bar.component.scss']
 })
 export class HeaderBarComponent implements OnInit {
-  public menu: Tab[] = [];
+  public menu: ITab[] = [];
 
   constructor(private router: Router) {}
 
@@ -29,8 +29,8 @@ export class HeaderBarComponent implements OnInit {
       });
   }
 
-  private initMenu(router: Router): Tab[] {
-    const menu: Tab[] = [];
+  private initMenu(router: Router): ITab[] {
+    const menu: ITab[] = [];
     router.config
       .filter(config => !!config.data)
       .forEach(
@@ -38,17 +38,17 @@ export class HeaderBarComponent implements OnInit {
           menu.push({ id: data.order, label: data.title, url: data.url, active: false });
         }
       );
-    return menu.sort((tabA: Tab, tabB: Tab) => tabA.id - tabB.id);
+    return menu.sort((tabA: ITab, tabB: ITab) => tabA.id - tabB.id);
   }
 
-  private updateActiveTab(menu: Tab[], currentUrl: string): Tab[] {
-    menu.forEach((tab: Tab) => {
+  private updateActiveTab(menu: ITab[], currentUrl: string): ITab[] {
+    menu.forEach((tab: ITab) => {
       tab.active = tab.url === currentUrl;
     });
     return menu;
   }
 
-  public redirect(tab: Tab) {
+  public redirect(tab: ITab) {
     this.router.navigate([tab.url]);
   }
 }
