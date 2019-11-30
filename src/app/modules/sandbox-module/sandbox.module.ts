@@ -7,10 +7,11 @@ import { FunFactDisplayComponent } from './fun-fact-display/fun-fact-display.com
 import { FunFactComponent } from './fun-fact/fun-fact.component';
 import { SandboxRouting } from './sandbox.routing';
 import { SandboxComponent } from './sandbox/sandbox.component';
+import { FunFactCodeComponent } from './fun-fact-code/fun-fact-code.component';
 
 @NgModule({
   imports: [CommonModule, SandboxRouting, MatIconModule, MatCardModule, MatButtonModule],
-  declarations: [SandboxComponent, FunFactComponent, FunFactDisplayComponent]
+  declarations: [SandboxComponent, FunFactComponent, FunFactDisplayComponent, FunFactCodeComponent]
 })
 export class SandboxModule {
   constructor() {}
